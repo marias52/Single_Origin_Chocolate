@@ -2,18 +2,22 @@ package com.bnta.chocolate.models;
 
 import javax.persistence.*;
 
-
+@Entity
+@Table(name = "chocolate")
 public class Chocolate {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @Column(name = "name")
     private String name;
-
+    @Column(name = "cocoaPercentage")
     private int cocoaPercentage;
 
 
+    @ManyToOne //this will join the chocolate table (as we are in the chocolate table/class) to the estate table as this annotaton is on  a variable/property of the Estate datatype
+    @JoinColumn(name = "estate_id")
     private Estate estate;
 
     public Chocolate(String name, int cocoaPercentage, Estate estate) {

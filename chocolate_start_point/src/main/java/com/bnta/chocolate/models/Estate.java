@@ -7,19 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+@Entity
+@Table(name = "estates")
 public class Estate {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    @Column(name="name")
     private String name;
 
-
+    @Column(name="country")
     private String country;
 
-
+    @OneToMany(mappedBy = "estate") //As we are annotating the List<Chocolate> chocolates line; when we say mappedBy = "estate" it will look for the estate property in the Chocolate class as we have Chocolate as the data tybe for the list.
     private List<Chocolate> chocolates;
 
     public Estate(String name, String country) {
