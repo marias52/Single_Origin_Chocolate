@@ -1,4 +1,4 @@
-package controllers;
+package com.bnta.chocolate.controllers;
 
 import com.bnta.chocolate.models.Chocolate;
 import com.bnta.chocolate.models.Estate;

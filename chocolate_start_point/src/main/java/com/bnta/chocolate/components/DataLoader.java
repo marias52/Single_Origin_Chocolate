@@ -1,10 +1,12 @@
-package com.bnta.chocolate.models.components;
+package com.bnta.chocolate.components;
 
 
 import com.bnta.chocolate.models.Chocolate;
 import com.bnta.chocolate.models.Estate;
 import com.bnta.chocolate.repositories.ChocolateRepository;
 import com.bnta.chocolate.repositories.EstateRepository;
+import com.bnta.chocolate.services.ChocolateService;
+import com.bnta.chocolate.services.EstateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,10 +16,15 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements ApplicationRunner {
 
 
+//    @Autowired
+//    EstateRepository estateRepository;
+//    @Autowired
+//    ChocolateRepository chocolateRepository;
+
     @Autowired
-    EstateRepository estateRepository;
+    EstateService estateService;
     @Autowired
-    ChocolateRepository chocolateRepository;
+    ChocolateService chocolateService;
 
 
 
@@ -34,13 +41,13 @@ public class DataLoader implements ApplicationRunner {
         Chocolate chocolate3 = new Chocolate("Cookies & Cream",20,estate2);
         Chocolate chocolate4 = new Chocolate("Reese's pieces",15,estate2);
 
-        estateRepository.save(estate1);
-        estateRepository.save(estate2);
+        estateService.saveEstate(estate1);
+        estateService.saveEstate(estate2);
 
-        chocolateRepository.save(chocolate1);
-        chocolateRepository.save(chocolate2);
-        chocolateRepository.save(chocolate3);
-        chocolateRepository.save(chocolate4);
+        chocolateService.saveChocolate(chocolate1);
+        chocolateService.saveChocolate(chocolate2);
+        chocolateService.saveChocolate(chocolate3);
+        chocolateService.saveChocolate(chocolate4);
 
     }
 

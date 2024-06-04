@@ -1,5 +1,7 @@
 package com.bnta.chocolate.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,7 @@ public class Chocolate {
 
     @ManyToOne //this will join the chocolate table (as we are in the chocolate table/class) to the estate table as this annotaton is on  a variable/property of the Estate datatype
     @JoinColumn(name = "estate_id")
+    @JsonIgnoreProperties({"chocolates"}) //this stops the recrusion. The estates have a list of chocoles and each chocolate has an estate which has a list of chocolates etc. So this annotation is to top the recursion at the first step
     private Estate estate;
 
     public Chocolate(String name, int cocoaPercentage, Estate estate) {
