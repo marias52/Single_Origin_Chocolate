@@ -24,4 +24,8 @@ public class EstateService {
         return estate;
     }
 
+    public List<Estate> getAllEstates(){
+        return this.estateRepository.findAll();
+    }
+
 }
