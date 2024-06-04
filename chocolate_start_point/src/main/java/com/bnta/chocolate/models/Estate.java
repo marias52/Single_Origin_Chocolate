@@ -24,6 +24,7 @@ public class Estate {
     @OneToMany(mappedBy = "estate")
     @JsonIgnoreProperties({"estate"})
     private List<Chocolate> chocolates;
+
     //As we are annotating the List<Chocolate> chocolates line; when we say mappedBy = "estate" it will look for the estate property in the Chocolate class as we have Chocolate as the data tybe for the list.
     public Estate(String name, String country) {
         this.name = name;
